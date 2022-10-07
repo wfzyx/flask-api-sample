@@ -1,3 +1,15 @@
+# How to run #
+
+```
+git clone https://github.com/wfzyx/special-octo-guide.git
+cd special-octo-guide
+pip install -r requirements.txt
+chmod +x app.py
+./app.py
+```
+
+Obs: there is a .envrc file for convenience
+
 # Acceptance Criteria #
 
 - [X] Fetch transparency[dash]in[dash]coverage[dot]uhc[dot]com
@@ -6,7 +18,7 @@
 - Endponts to make:
 	- [ ] Search for a company EIN
 	- [X] Search for a company Name
-	- [ ] returns a list of "plan names" and their "in network pricing file locations" for the matching company.
+	- [X] returns a list of "plan names" and their "in network pricing file locations" for the matching company.
 
 # Optional #
 
@@ -15,10 +27,10 @@
 
 # Evaluation Criteria #
 
-- [/] Work as intended
-- [X] Quality of code
-- [X] Speed
-- [ ] Organization of the results
+- Work as intended
+- Quality of code
+- Speed
+- Organization of the results
 
 # Deliverables #
 
