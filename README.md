@@ -3,9 +3,8 @@
 ```
 git clone https://github.com/wfzyx/special-octo-guide.git
 cd special-octo-guide
-pip install -r requirements.txt
-chmod +x app.py
-./app.py
+pip3 install -r requirements.txt
+python3 app.py
 ```
 
 Obs: there is a .envrc file for convenience
