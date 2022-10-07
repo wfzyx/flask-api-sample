@@ -19,6 +19,8 @@ Obs: there is a .envrc file for convenience
 	- [X] Search for a company Name
 	- [X] returns a list of "plan names" and their "in network pricing file locations" for the matching company.
 
+Obs: EIN search was not implemented, because a reliable and fast way to fetch all the companies EINs wasn't found, the only approach would be to hit the target api thoushands of times, and that doesn't sound good :(
+
 # Optional #
 
 - [X] Create a simple UI with an input box where the user can type in their search term and see the results returned from the API.
