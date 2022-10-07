@@ -12,13 +12,15 @@
   <a href="javascript:history.go(-1)">
     <button>Go back</button>
   </a>
+  <form action="/api/fetch">
   <ul>
     {% for company_name, url in result_set.items() %}
     <li>
-      <a href={{url}}>{{company_name}}</a>
+	    <button type="submit" name="index_file" value="{{url}}"/>{{company_name}}</button>
     </li>
     {% endfor %}
   </ul>
+  </form>
 </body>
 
 </html>
