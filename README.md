@@ -3,6 +3,7 @@
 - sqlite3 doesn't love multithreading, but it is workable when doing small atomic operations - opening and closing the session on spot;
 - The EIN index built by the background task is already hitting its throttling speed. To achieve better speeds a distributed approach using cloud would be needed;
 - A copy of the fully built database is provided on this repo since building it from scratch takes a few minutes;
+- Blueprints and separation of the endpoints, views, and helper functions would be the next natural step if more features get implemented
 
 # How to run #
 
