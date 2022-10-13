@@ -1,6 +1,11 @@
 import sqlite3 as sql
 
 
+def _execute(sqlcmd):
+    with sql.connect("db.db") as connection:
+        return connection.execute(sqlcmd)
+
+
 def migrate():
     with sql.connect("db.db") as connection:
         try:
@@ -10,26 +15,21 @@ def migrate():
 
 
 def get_data_by_name(NAME):
-    with sql.connect("db.db") as connection:
-        result = connection.execute(
-            f"SELECT NAME, JSON_URI, EIN FROM LISTINGS WHERE LOWER(NAME) LIKE '%{NAME.lower()}%' "
-        )
+    result = _execute(
+        f"SELECT NAME, JSON_URI, EIN FROM LISTINGS WHERE LOWER(NAME) LIKE '%{NAME.lower()}%'"
+    )
     return [{"name": item[0], "json_uri": item[1], "ein": item[2]} for item in result]
 
 
 def get_data_by_ein(EIN):
-    with sql.connect("db.db") as connection:
-        result = connection.execute(
-            f"SELECT NAME, JSON_URI, EIN FROM LISTINGS WHERE EIN LIKE '%{EIN}%' "
-        )
+    result = _execute(
+        f"SELECT NAME, JSON_URI, EIN FROM LISTINGS WHERE EIN LIKE '%{EIN}%'"
+    )
     return [{"name": item[0], "json_uri": item[1], "ein": item[2]} for item in result]
 
 
 def get_rows_without_ein():
-    with sql.connect("db.db") as connection:
-        return connection.execute(
-            "SELECT JSON_URI FROM LISTINGS WHERE EIN IS NULL"
-        ).fetchall()
+    return _execute("SELECT JSON_URI FROM LISTINGS WHERE EIN IS NULL").fetchall()
 
 
 def insert_bulk_with_name(data):
