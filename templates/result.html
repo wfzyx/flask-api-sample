@@ -12,15 +12,17 @@
   <a href="javascript:history.go(-1)">
     <button>Go back</button>
   </a>
-  <table>
-    {% for item in result_set %}
-    <tr>
-      <td>{{item.name}}</td>
-      {% if item.ein %}<td>{{item.ein}}</td> {% endif %}
-      <td><a href={{item.json_uri}} download>Download</a></td>
-    </tr>
-    {% endfor %}
-  </table>
+  <form action='/api/fetch'>
+    <table>
+      {% for item in result_set %}
+      <tr>
+        <td>{{item.name}}</td>
+        {% if item.ein %}<td>{{item.ein}}</td> {% endif %}
+        <td><button type="submit" name="index_file" value="{{item.json_uri}}" />Retrieve info</button></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </form>
 </body>
 
 </html>
