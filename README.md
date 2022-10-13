@@ -1,3 +1,9 @@
+# General Observations #
+
+- sqlite3 doesn't love multithreading, but it is workable when doing small atomic operations - opening and closing the session on spot;
+- The EIN index built by the background task is already hitting its throttling speed. To achieve better speeds a distributed approach using cloud would be needed;
+- A copy of the fully built database is provided on this repo since building it from scratch takes a few minutes;
+
 # How to run #
 
 ```
@@ -7,19 +13,17 @@ pip3 install -r requirements.txt
 python3 app.py
 ```
 
-Obs: there is a .envrc file for convenience
+*Note: There is a .envrc file for convenience*
 
 # Acceptance Criteria #
 
 - [X] Fetch transparency[dash]in[dash]coverage[dot]uhc[dot]com
 - [X] Get the employer name list
-- [X] Extract the json index files on demand
-- Endponts to make:
-	- [ ] Search for a company EIN
+- [X] Extract the JSON index files on demand
+- Endpoints to make:
+	- [X] Search for a company EIN
 	- [X] Search for a company Name
 	- [X] returns a list of "plan names" and their "in network pricing file locations" for the matching company.
-
-Obs: EIN search was not implemented, because a reliable and fast way to fetch all the companies EINs wasn't found, the only approach would be to hit the target api thoushands of times, and that doesn't sound good :(
 
 # Optional #
 

@@ -5,20 +5,37 @@
   <title>Result List</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/style.css" rel="stylesheet">
+  <style>
+    td,
+    th {
+      text-align: center;
+      border-color: black;
+      border-width: 0.1em;
+      border-style: solid;
+    }
+  </style>
 </head>
 
 <body>
-  <a href="javascript:history.go(-1)">
+  <a href="/">
     <button>Go back</button>
   </a>
   <form action='/api/fetch'>
     <table>
+      <tr>
+        <th>Listings Info</th>
+        <th>Company Name</th>
+        <th>EIN</th>
+      </tr>
       {% for item in result_set %}
       <tr>
+        <td><button type="submit" name="index_file" value="{{item.json_uri}}" />Get Listings</button></td>
         <td>{{item.name}}</td>
-        {% if item.ein %}<td>{{item.ein}}</td> {% endif %}
-        <td><button type="submit" name="index_file" value="{{item.json_uri}}" />Retrieve info</button></td>
+        <td>
+          {% if item.ein %}
+          {{item.ein}}
+          {% endif %}
+        </td>
       </tr>
       {% endfor %}
     </table>
